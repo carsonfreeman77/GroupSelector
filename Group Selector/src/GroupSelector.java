@@ -29,7 +29,13 @@ public class GroupSelector
 
 	private static void sortGroupsAlphabetically()
 		{
-		//dimitris sort out names by last name in alphabetical order 
+		for(int i = 0; i < groups.size(); i++)
+			{
+				groups.get(i).getLastName()
+				
+				
+				Collections.sort(groups.get(i));
+			}
 		}
 
 	private static void printGroups()
