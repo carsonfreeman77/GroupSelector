@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.*;
 public class GroupSelector
 	{
-
-	public static void main(String[] args)
+	static ArrayList<Roster> roster = new ArrayList<Roster>();
+	public static void main(String[] args) throws IOException
 		{
 		makeRoster();
 		makeGroups();
@@ -11,10 +11,13 @@ public class GroupSelector
 		printGroups();
 		}
 
-	private static void makeRoster()
+	private static void makeRoster() throws IOException
 		{
-		// TODO Auto-generated method stub
-		
+		Scanner file = new Scanner( new File( "roster.txt" ) );
+		while (file.hasNextLine())
+			{
+			String line = file.nextLine();
+			}
 		}
 
 	private static void makeGroups()
