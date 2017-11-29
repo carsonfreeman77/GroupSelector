@@ -6,9 +6,9 @@ public class GroupSelector
 	public static void main(String[] args) throws IOException
 		{
 		makeRoster();
-		makeGroups();
-		sortGroupsAlphabetically();
-		printGroups();
+		//makeGroups();
+		//sortGroupsAlphabetically();
+		//printGroups();
 		}
 
 	private static void makeRoster() throws IOException
@@ -21,8 +21,9 @@ public class GroupSelector
 			double num = Double.parseDouble(array[2]);
 			roster.add(new BuildRoster (array[0], array[1], num));
 			}
+		Collections.sort(roster, new ScoreSorter());
 		}
-
+	
 	private static void makeGroups()
 		{
 		Scanner userInput = new Scanner(System.in);
