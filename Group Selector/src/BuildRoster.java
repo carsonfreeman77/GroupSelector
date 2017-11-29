@@ -1,5 +1,5 @@
 
-public class BuildRoster
+public class BuildRoster implements java.lang.Comparable<BuildRoster>
 	{
 	private String firstName;
 	private String lastName;
@@ -40,6 +40,13 @@ public class BuildRoster
 	public void setGrade(double grade)
 		{
 		this.grade = grade;
+		}
+
+	@Override
+	public int compareTo(BuildRoster arg0)
+		{
+		// TODO Auto-generated method stub
+		return 0;
 		}	
 	
 	}
