@@ -2,11 +2,15 @@ import java.util.*;
 import java.io.*;
 public class GroupSelector
 	{
+	static int k;
+	static int groupNumber;
+	static ArrayList <Group> group;
 	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>();
 	public static void main(String[] args) throws IOException
 		{
 		makeRoster();
-		//makeGroups();
+		makeGroups();
+		
 		//sortGroupsAlphabetically();
 		//printGroups();
 		}
@@ -28,13 +32,36 @@ public class GroupSelector
 		{
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Hello how many groups would you like?");
-		int name = userInput.nextInt();
-		for(int i = 1; i <= name; i++)
+		groupNumber = userInput.nextInt();
+		for (k = 1; k <= groupNumber; k++)
 			{
-				System.out.println(i);
+			fillGroups();
 			}
 		}
 
+	private static void fillGroups()
+		{
+		int groupFinder = k - 1;
+		group = new ArrayList<Group>();
+		String first = roster.get(groupFinder).getFirstName();
+		String last = roster.get(groupFinder).getLastName();
+		if (groupFinder < roster.size())
+			{
+			group.add(new Group (first, last));
+			groupFinder += groupNumber;
+			fillGroups();
+			}
+		else 
+			{
+			System.out.println("Group " + k);
+			System.out.println("");
+			for (int i = 0; i < group.size(); i++)
+				{
+				System.out.println(group.get(i).getFirstNameGroup() + " " + group.get(i).getLastNameGroup());
+				}
+			}
+		}
+	
 	private static void sortGroupsAlphabetically()
 		{
 		for(int i = 0; i < groups.size(); i++)
