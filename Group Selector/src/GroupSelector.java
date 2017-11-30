@@ -2,15 +2,14 @@ import java.util.*;
 import java.io.*;
 public class GroupSelector
 	{
-	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>();
-	public static void main(String[] args)throws IOException
+	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>()
+	public static void main(String[] args) throws IOException
 		{
 		makeRoster();
-		makeGroups();
+		//makeGroups();
 		//sortGroupsAlphabetically();
 		//printGroups();
 		}
-
 	private static void makeRoster()throws IOException
 		{
 			Scanner file = new Scanner( new File( "roster.txt" ) );
@@ -22,8 +21,10 @@ public class GroupSelector
 				roster.add(new BuildRoster (array[0], array[1], num));
 				}
 			Collections.sort(roster, new ScoreSorter());
-		}
 
+
+		}
+	
 	private static void makeGroups()
 		{
 		Scanner userInput = new Scanner(System.in);
@@ -45,9 +46,8 @@ public class GroupSelector
 					groups.get(i).getLastName()
 					
 					
-					Collections.sort(groups.get(i));
-				}
-		}
+					Collections.sort(groups.get(i)
+          }
 
 	private static void printGroups()
 		{
