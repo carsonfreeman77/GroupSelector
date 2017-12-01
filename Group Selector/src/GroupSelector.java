@@ -2,11 +2,15 @@ import java.util.*;
 import java.io.*;
 public class GroupSelector
 	{
-	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>()
+	static int k;
+	static int groupNumber;
+	static ArrayList <Group> group;
+	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>();
 	public static void main(String[] args) throws IOException
 		{
 		makeRoster();
-		//makeGroups();
+		makeGroups();
+		
 		//sortGroupsAlphabetically();
 		//printGroups();
 		}
@@ -29,13 +33,12 @@ public class GroupSelector
 		{
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Hello how many groups would you like?");
-		int name = userInput.nextInt();
-		for(int i = 1; i <= name; i++)
+		groupNumber = userInput.nextInt();
+		for (k = 1; k <= groupNumber; k++)
 			{
 			List<Integer> schoolList = new ArrayList<Integer>();
 			 roster.add((BuildRoster) schoolList);
 			 System.out.println("Group " + i + schoolList);
-			 
 			}
 		}
 
