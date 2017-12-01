@@ -52,20 +52,6 @@ public class GroupSelector
 			}
 		}
 
-	private static void sortGroupsAlphabetically()
-		{
-			for(int i = 0; i < groups.size(); i++)
-				{
-					groups.get(i).getLastName()
-					
-					
-					Collections.sort(groups.get(i)
-          }
 
-	private static void printGroups()
-		{
-		// TODO Auto-generated method stub
-		
-		}
 
 	}
