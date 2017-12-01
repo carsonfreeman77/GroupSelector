@@ -4,7 +4,6 @@ public class GroupSelector
 	{
 	static int k;
 	static int groupNumber;
-	static ArrayList <Group> group;
 	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>();
 	public static void main(String[] args) throws IOException
 		{
@@ -34,11 +33,22 @@ public class GroupSelector
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Hello how many groups would you like?");
 		groupNumber = userInput.nextInt();
-		for (k = 1; k <= groupNumber; k++)
+		for (k = 0; k < groupNumber; k++)
 			{
-			List<Integer> schoolList = new ArrayList<Integer>();
-			 roster.add((BuildRoster) schoolList);
-			 System.out.println("Group " + i + schoolList);
+			ArrayList <Group> group = new ArrayList<Group>();
+			for (int j = k; j < roster.size() - (roster.size() % groupNumber); j = j + groupNumber)
+				{
+				
+				String first = roster.get(j).getFirstName();
+				String last = roster.get(j).getLastName();
+				group.add(new Group(first, last));
+				}
+			Collections.sort(roster, new NameSorter());
+			for (int o = 0; o < group.size(); o++)
+				{
+				System.out.println(group.get(o).getFirstNameGroup() + " " + group.get(o).getLastNameGroup());
+				}
+			System.out.println(" ");
 			}
 		}
 
