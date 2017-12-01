@@ -4,7 +4,6 @@ public class GroupSelector
 	{
 	static int k;
 	static int groupNumber;
-	static ArrayList <Group> group;
 	static ArrayList<BuildRoster> roster = new ArrayList<BuildRoster>();
 	public static void main(String[] args) throws IOException
 		{
@@ -33,35 +32,25 @@ public class GroupSelector
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Hello how many groups would you like?");
 		groupNumber = userInput.nextInt();
-		for (k = 1; k <= groupNumber; k++)
+		for (k = 0; k < groupNumber; k++)
 			{
-			fillGroups();
+			ArrayList <Group> group = new ArrayList<Group>();
+			for (int j = k; j < roster.size() - (roster.size() % groupNumber); j = j + groupNumber)
+				{
+				
+				String first = roster.get(j).getFirstName();
+				String last = roster.get(j).getLastName();
+				group.add(new Group(first, last));
+				}
+			Collections.sort(roster, new NameSorter());
+			for (int o = 0; o < group.size(); o++)
+				{
+				System.out.println(group.get(o).getFirstNameGroup() + " " + group.get(o).getLastNameGroup());
+				}
+			System.out.println(" ");
 			}
 		}
 
-	private static void fillGroups()
-		{
-		int groupFinder = k - 1;
-		group = new ArrayList<Group>();
-		String first = roster.get(groupFinder).getFirstName();
-		String last = roster.get(groupFinder).getLastName();
-		if (groupFinder < roster.size())
-			{
-			group.add(new Group (first, last));
-			groupFinder += groupNumber;
-			fillGroups();
-			}
-		else 
-			{
-			System.out.println("Group " + k);
-			System.out.println("");
-			for (int i = 0; i < group.size(); i++)
-				{
-				System.out.println(group.get(i).getFirstNameGroup() + " " + group.get(i).getLastNameGroup());
-				}
-			}
-		}
-	
 	private static void sortGroupsAlphabetically()
 		{
 		for(int i = 0; i < groups.size(); i++)
